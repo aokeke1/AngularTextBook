@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<link rel = "stylesheet" type = "text/css" href = "css/styles.css" />
+  <head>
+  </head>
+  <body>
+    <button ng-click="printRootScope()">Print Root Scope</button>
+    <div>---------------------</div>
+    <textarea ng-disabled="isDisabled">Wait 5 seconds</textarea>
+    <div>---------------------</div>
+    <label>someProperty = {{someProperty}}</label>
+    <input type="checkbox"
+           ng-checked="someProperty"
+           ng-init="someProperty = true"
+           ng-model="someProperty" />
+    <br/>
+    <label>anotherProperty = {{anotherProperty}}</label>
+    <input type="checkbox"
+          ng-checked="anotherProperty"
+          ng-init="anotherProperty = false"
+          ng-model="anotherProperty" />
+    <div>---------------------</div>
+    <br/>
+    <label>Select Two Fish:</label>
+    <input type="checkbox"
+          ng-model="isTwoFish" />
+    <br/>
+    <select>
+      <option>One Fish</option>
+      <option ng-selected="isTwoFish">Two Fish</option>
+    </select>
+    <div>---------------------</div>
+    <a ng-href="{{myHref}}">I'm feeling lucky when I load</a>
+    <a href="{{myHref}}">I'm feeling 404</a>
+    <div>---------------------</div>
+    <h1>Correct Way</h1>
+    <img ng-src="{{imgSrc}}" />
+    <h1>Incorrect Way</h1>
+    <img src="{{imgSrc}}" />
+  </body>
+</html>
