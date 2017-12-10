@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
+  <script type="text/javascript" src="myApp.module.js"></script>
+  <head>
+    <title>Simple App</title>
+  </head>
+  <body>
+    <div ng-app="myApp">
+      <div ng-controller="MyFirstController">
+        <h1>Hello {{ name }}</h1>
+      </div>
+      <div ng-controller="MySecondController">
+        <h1>Hello {{ name }}</h1>
+      </div>
+      <div ng-controller="MyThirdController">
+        <h1>Hello {{ name }}</h1>
+      </div>
+    </div>
+  </body>
+</html>
