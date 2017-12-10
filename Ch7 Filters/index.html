@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+  <head>
+  </head>
+  <body>
+    <h1>-----------------------</h1>
+    <div ng-controller="NameDisplayController">
+      <input type="text" ng-model="textBox" placeholder="Enter a name here">
+      <h2>Uppercase: {{ name | uppercase }}</h2>
+      <h2>Number Filter with args: {{ name | number:2 }}</h2>
+      <!-- Can specify which currency, but if none specified, then local currency used -->
+      <h2>Currency: {{ name | currency }}</h2>
+      <!-- Pg 40,41 for more exampled of date and time -->
+      <h2>Today {{ today | date:'short' }}</h2>
+      <h2>Today {{ today | date:'full' }}</h2>
+    </div>
+    <h1>-----------------------</h1>
+    <div ng-controller="DollarFilterController">
+      <input type="text" ng-model="textBox" placeholder="Enter a name here">
+      <h2>Lowercase using $filter in JS: {{ name }}</h2>
+    </div>
+    <h1>-----------------------</h1>
+    <div ng-controller="FilterFilterController">
+      <!-- pg43 -->
+      <!-- default does case insensitive match -->
+      <!-- if the second argument passed in is false then does case insensitive match -->
+      <h2>Filter {{namesList}} by string {{letterToSelectFor}}= {{ namesList | filter:letterToSelectFor }}</h2>
+      <!-- if the second argument passed in is true then does case sensitive match -->
+      <h2>Filter {{namesList}} by string {{letterToSelectFor}} case sensitive= {{ namesList | filter:letterToSelectFor:true }}</h2>
+      <h2>Filter {{peopleObjects}} by object {{propertyToSelectFor}}= {{ peopleObjects | filter:propertyToSelectFor }}</h2>
+      <!-- use json filter to turn json or javascript object to string -->
+      <!-- requires wrapping in pre tag -->
+      <pre>People {{ stringify | json }}</pre>
+      <pre>{{stringify | json : 12}}</pre>
+      <pre>{{ {'name': 'Ari', 'City': 'San Francisco'} | json }}</pre>
+      <h2>Filter {{wordsList}} by function {{isCapitalized}}= {{ wordsList | filter:isCapitalized }}</h2>
+    </div>
+    <h1>-----------------------</h1>
+    <div>
+      <h1>Self defined filters</h1>
+      <h2>capitalize (defined) then lowercase (built in) aPpLe = {{"aPpLe"|capitalize|lowercase}}</h2>
+      <h2>capitalize (defined) aPpLe = {{"aPpLe"|capitalize}}</h2>
+      <h2>lowercase (built in) aPpLe = {{"aPpLe"|lowercase}}</h2>
+      <h2>lowercase (built in) then capitalize (defined) aPpLe = {{"aPpLe"|lowercase|capitalize}}</h2>
+    </div>
+  </body>
+</html>

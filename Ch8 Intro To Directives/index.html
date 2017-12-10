@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<link rel = "stylesheet" type = "text/css" href = "css/styles.css" />
+  <head>
+  </head>
+  <body>
+    <!-- link tag knows to make it so that when you click the text to go to the link -->
+    <a href="http://google.com">Google Link</a> <br/>
+    <!-- the button tag does not do the same action -->
+    <button href="http://google.com" type="submit">Broken Google Button</button> <br/>
+    <!-- you can wrap a button in an achor tag to get desired results -->
+    <a href="http://google.com"><button type="submit">Functional Google Button</button></a> <br/>
+    <br/>
+    <div>---------------------</div>
+    <my-first-directive></my-first-directive>
+    <my-second-directive></my-second-directive>
+    <br/><br/>
+    <div>---------------------</div>
+    <!-- alternate ways to call the directive -->
+    <my-element-directive></my-element-directive>
+    <div my-attribute-directive></div>
+    <div class="my-class-directive"></div>
+    <!-- directive: my-comment-directive -->
+    <div>---------------------</div>
+    <h1 ng-init="greeting = 'Hello World'">
+      The greeting is: {{ greeting }}
+    </h1>
+    <div>---------------------</div>
+    <!-- See pg 71 for information about scopes
+    <!-\- calling directives with expressions -\->
+    <my-element-directive="someExpression"></my-element-directive>
+    <div my-attribute-directive="someExpression"></div>
+    <div class="my-class-directive:someExpression"></div>
+    <!-\- directive: my-comment-directive someExpression -\->
+    -->
+    <div>---------------------</div>
+    <div my-directive-with-attributes
+         my-url="http://google.com"
+         my-link-text="Using Attributes: Click me to go to Google"></div>
+    <div>---------------------</div>
+    <div ng-controller="myWrappingController">
+      <input type="text" ng-model="inputText" placeholder="Name" />
+      <div directive-using-scope some-attr="{{inputText}}"></div>
+    </div>
+    <div>---------------------</div>
+
+    <div complicated-binding-directive
+         some-attr="theirUrl"
+         some-second-attr="{{theirUrl}}"
+         my-link-text="Complicated Binding: Click me to go to Google"></div>
+    <p>outside theirUrl: {{theirUrl}}</p>
+    <button ng-click="printRootScope()">Print Root Scope</button>
+
+  </body>
+</html>

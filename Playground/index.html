@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <head>
+  </head>
+  <body>
+    <div ng-controller="FirstController">
+      <h4>The simplest adding machine ever</h4>
+      <button ng-click="add(1)" class="button">Add</button>
+      <a ng-click="subtract(1)" class="button alert">Subtract</a>
+      <h4>Current count: {{ counter }}</h4>
+    </div>
+    <div ng-controller="ParentController">
+      <div ng-controller="ChildController">
+        <button ng-click="sayHello()">Say Hello</button>
+      </div>
+      <h1>{{person}}</h1>
+    </div>
+    <div ng-controller="ChildController">
+      <button ng-click="sayHello()">Say Hello</button>
+      <h1>{{person}}</h1>
+    </div>
+    <div ng-controller="ParseController">
+      <input ng-model="expr"
+             type="text"
+             placeholder="Enter an expression"/>
+      <h2>{{ parsedValue }}</h2>
+    </div>
+    <div ng-controller="InterpolateController">
+      <input ng-model="to"
+             type="email"
+             placeholder="Recpient" />
+      <textarea ng-model="emailBody"></textarea>
+      <pre>{{ previewText }}</pre>
+    </div>
+    <div ng-controller="SecondInterpolateController">
+      <input ng-model="to"
+             type="email"
+             placeholder="Recpient" />
+      <textarea ng-model="emailBody"></textarea>
+      <!-- <pre>__ previewText __</pre> -->
+      <pre>{{ previewText }}</pre>
+    </div>
+  </body>
+</html>
